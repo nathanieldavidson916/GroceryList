@@ -11,6 +11,8 @@ function addItem(){
     btnClose.classList.add("btn-danger");
     btnClose.classList.add("btn-xs");
 
+    btnClose.addEventListener("click", removeParentListItem)
+
     //creating iconClose and it's classes
     var iconClose = document.createElement("span");
     iconClose.classList.add("glyphicon");
@@ -22,6 +24,11 @@ function addItem(){
     list.appendChild(item);
     document.getElementById("newItem").value = '';
     
+}
+function removeParentListItem(){
+    var mom = this.parentNode;
+    var grandma = mom.parentNode;
+    grandma.removeChild(mom);
 }
 //courtesy of w3schools, from: http://www.w3schools.com/js/js_cookies.asp
 function setCookie(cname, cvalue, exdays) {
