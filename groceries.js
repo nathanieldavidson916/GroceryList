@@ -3,8 +3,21 @@ function addItem(){
     var list = document.getElementById("listDisplay");
 
     var item = document.createElement("li");
+    var btnClose = document.createElement("button");
     var itemName = document.createTextNode(input);
 
+    //add class btn to btnClose
+    btnClose.classList.add("btn");
+    btnClose.classList.add("btn-danger");
+    btnClose.classList.add("btn-xs");
+
+    //creating iconClose and it's classes
+    var iconClose = document.createElement("span");
+    iconClose.classList.add("glyphicon");
+    iconClose.classList.add("glyphicon-remove");
+
+
+    item.appendChild(btnClose);
     item.appendChild(itemName);
     list.appendChild(item);
     document.getElementById("newItem").value = '';
