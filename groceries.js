@@ -34,7 +34,17 @@ function addItem(){
 function removeParentListItem(){
     var mom = this.parentNode;
     var grandma = mom.parentNode;
+
+    //remove item from array
+    var itemRemove = mom.lastChild.nodeValue;
+    console.log("itemRemove: " + itemRemove);
+    var itemIndex = myList.indexOf(itemRemove);
+    console.log("itemIndex: " + itemIndex);
+    myList.splice(itemIndex, 1);
+    console.log(myList);
+
     grandma.removeChild(mom);
+
 }
 //courtesy of w3schools, from: http://www.w3schools.com/js/js_cookies.asp
 function setCookie(cname, cvalue, exdays) {
