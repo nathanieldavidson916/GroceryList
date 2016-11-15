@@ -1,28 +1,34 @@
+var myList = [];
+
 function addItem(){
     var input = document.getElementById("newItem").value;
-    var list = document.getElementById("listDisplay");
+    if(myList.indexOf(input) == -1){
+        myList.push(input);
+        console.log(myList);
+        var list = document.getElementById("listDisplay");
 
-    var item = document.createElement("li");
-    var btnClose = document.createElement("button");
-    var itemName = document.createTextNode(input);
+        var item = document.createElement("li");
+        var btnClose = document.createElement("button");
+        var itemName = document.createTextNode(input);
 
-    //add class btn to btnClose
-    btnClose.classList.add("btn");
-    btnClose.classList.add("btn-danger");
-    btnClose.classList.add("btn-xs");
+        //add class btn to btnClose
+        btnClose.classList.add("btn");
+        btnClose.classList.add("btn-danger");
+        btnClose.classList.add("btn-xs");
 
-    btnClose.addEventListener("click", removeParentListItem)
+        btnClose.addEventListener("click", removeParentListItem)
 
-    //creating iconClose and it's classes
-    var iconClose = document.createElement("span");
-    iconClose.classList.add("glyphicon");
-    iconClose.classList.add("glyphicon-remove");
+        //creating iconClose and it's classes
+        var iconClose = document.createElement("span");
+        iconClose.classList.add("glyphicon");
+        iconClose.classList.add("glyphicon-remove");
 
 
-    item.appendChild(btnClose);
-    item.appendChild(itemName);
-    list.appendChild(item);
-    document.getElementById("newItem").value = '';
+        item.appendChild(btnClose);
+        item.appendChild(itemName);
+        list.appendChild(item);
+        document.getElementById("newItem").value = '';
+    }
     
 }
 function removeParentListItem(){
