@@ -46,6 +46,23 @@ function removeParentListItem(){
     grandma.removeChild(mom);
 
 }
+//save list
+function saveList(){
+    var convertedArray = "";
+    for(var i = 0; i < myList.length; ++i){
+        if(i != (myList.length-1))
+            convertedArray += (myList[i] + ',');
+        else
+            convertedArray += myList[i];
+    }
+    setCookie('convertedArray', convertedArray, 10000);
+}
+//clear list
+function clearList(){
+    var list = document.getElementById("listDisplay");
+    list.innerHTML = "";
+    myList=[];
+}
 //courtesy of w3schools, from: http://www.w3schools.com/js/js_cookies.asp
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
