@@ -1,7 +1,6 @@
 var myList = [];
-
-function addItem(){
-    var input = document.getElementById("newItem").value;
+window.onload = loadCookieList;
+function displayItem(input){
     if(myList.indexOf(input) == -1){
         myList.push(input);
         console.log(myList);
@@ -29,6 +28,18 @@ function addItem(){
         list.appendChild(item);
         document.getElementById("newItem").value = '';
     }
+}
+function loadCookieList(){
+    var loadedCookie = getCookie('convertedArray');
+    var arrayCookie = loadedCookie.split(',');
+    for (var i = 0; i < arrayCookie.length; ++i){
+        displayItem(arrayCookie[i]);
+    }
+}
+function addItem(){
+    var input = document.getElementById("newItem").value;
+    displayItem(input);
+    
     
 }
 function removeParentListItem(){
